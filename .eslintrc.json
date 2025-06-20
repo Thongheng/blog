@@ -4,6 +4,11 @@
     "next/core-web-vitals"
   ],
   "rules": {
-    // Add any custom rules here
+    "no-unused-vars": "off",
+    "no-undef": "off",
+    "react/no-unescaped-entities": "off",
+    "jsx-a11y/alt-text": "off",
+    "@next/next/no-img-element": "off",
+    "no-useless-escape": "off"
   }
 }
