@@ -1,14 +1,12 @@
 import React from "react";
 
 import { Heading, Flex, Text, Button, Avatar, RevealFx, Column, Badge, Row, Meta, Schema } from "@once-ui-system/core";
-import { home, about, person, newsletter, baseURL, routes } from "@/resources";
-import { Mailchimp } from "@/components";
-import { Projects } from "@/components/work/Projects";
+import { home, about, person, baseURL, routes } from "@/resources";
 import { Posts } from "@/components/blog/Posts";
 
 export default function Home() {
   return (
-    <Column maxWidth="m" gap="xl" horizontal="center">
+    <Column style={{ width: "70%", margin: "0 auto" }} gap="xl" horizontal="center">
       <Schema
         as="webPage"
         baseURL={baseURL}
@@ -21,17 +19,8 @@ export default function Home() {
           url: `${baseURL}${about.path}`,
           image: `${baseURL}${person.avatar}`,
         }}
-      />
-      <Column fillWidth paddingY="24" gap="m">
+      />      <Column fillWidth paddingY="24" gap="m">
         <Column maxWidth="s">
-          {home.featured.display && (
-          <RevealFx fillWidth horizontal="start" paddingTop="16" paddingBottom="32" paddingLeft="12">
-            <Badge background="brand-alpha-weak" paddingX="12" paddingY="4" onBackground="neutral-strong" textVariant="label-default-s" arrow={false}
-              href={home.featured.href}>
-              <Row paddingY="2">{home.featured.title}</Row>
-            </Badge>
-          </RevealFx>
-          )}
           <RevealFx translateY="4" fillWidth horizontal="start" paddingBottom="16">
             <Heading wrap="balance" variant="display-strong-l">
               {home.headline}
@@ -64,12 +53,8 @@ export default function Home() {
                 {about.title}
               </Flex>
             </Button>
-          </RevealFx>
-        </Column>
+          </RevealFx>        </Column>
       </Column>
-      <RevealFx translateY="16" delay={0.6}>
-        <Projects range={[1, 1]} />
-      </RevealFx>
       {routes["/blog"] && (
         <Flex fillWidth gap="24" mobileDirection="column">
           <Flex flex={1} paddingLeft="l" paddingTop="24">
@@ -82,8 +67,6 @@ export default function Home() {
           </Flex>
         </Flex>
       )}
-      <Projects range={[2]} />
-      {newsletter.display && <Mailchimp newsletter={newsletter} />}
     </Column>
   );
 }
