@@ -10,7 +10,11 @@
     "next/core-web-vitals"
   ],
   "parser": "@typescript-eslint/parser",
-  "ignorePatterns": ["node_modules/", ".next/", "out/"],
+  "ignorePatterns": [
+    "node_modules/",
+    ".next/",
+    "out/"
+  ],
   "rules": {
     "no-unused-vars": "off",
     "no-undef": "off",

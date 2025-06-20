@@ -13,17 +13,6 @@ const person = {
   languages: [], // Empty array to hide languages
 };
 
-const newsletter = {
-  display: true,
-  title: <>Subscribe to {person.firstName}'s Security Newsletter</>,
-  description: (
-    <>
-      I occasionally write about cybersecurity, penetration testing, and share insights on the latest
-      offensive security techniques and threat intelligence.
-    </>
-  ),
-};
-
 const social = [
   // Links are automatically displayed.
   // Import new icons in /once-ui/icons.ts
@@ -93,7 +82,7 @@ const about = {
     ),
   },
   certificates: {
-    display: true,
+    display: false,
     title: "Certificates",
     certifications: [
       {
@@ -142,4 +131,4 @@ const work = {
   // All projects will be listed on the /home and /work routes
 };
 
-export { person, social, newsletter, home, about, blog, work };
+export { person, social, home, about, blog, work };
