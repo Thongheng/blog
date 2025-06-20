@@ -28,6 +28,7 @@ import { Inter } from "next/font/google";
 const defaultFont = Inter({
   subsets: ["latin"],
   display: "swap",
+  variable: '--font-inter',
 });
 
 const fonts = {
