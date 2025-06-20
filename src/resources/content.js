@@ -9,8 +9,8 @@ const person = {
   role: "Offensive Security Engineer",
   avatar: "/images/avatar.jpg",
   email: "thongheng2108@gmail.com",
-  location: "Asia/Jakarta", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna'
-  languages: ["English", "Bahasa"], // optional: Leave the array empty if you don't want to display languages
+  location: "", // Empty string to hide location
+  languages: [], // Empty array to hide languages
 };
 
 const newsletter = {
@@ -30,17 +30,12 @@ const social = [
   {
     name: "GitHub",
     icon: "github",
-    link: "https://github.com/thonghengheu",
+    link: "https://github.com/Thongheng",
   },
   {
     name: "LinkedIn",
     icon: "linkedin",
-    link: "https://www.linkedin.com/in/thonghengheu/",
-  },
-  {
-    name: "Twitter",
-    icon: "twitter",
-    link: "https://twitter.com/thonghengheu",
+    link: "https://www.linkedin.com/in/thongheng-heu/",
   },
   {
     name: "Email",
@@ -73,7 +68,7 @@ const about = {
   path: "/about",
   label: "About",
   title: `About – ${person.name}`,
-  description: `Meet ${person.name}, ${person.role} from ${person.location}`,
+  description: `Meet ${person.name}, ${person.role}`,
   tableOfContent: {
     display: true,
     subItems: false,

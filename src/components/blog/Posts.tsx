@@ -23,26 +23,25 @@ export function Posts({
 
     const displayedBlogs = range
         ? sortedBlogs.slice(
-              range[0] - 1,
-              range.length === 2 ? range[1] : sortedBlogs.length 
-          )
+            range[0] - 1,
+            range.length === 2 ? range[1] : sortedBlogs.length
+        )
         : sortedBlogs;
 
     return (
         <>
-            {displayedBlogs.length > 0 && (
-                <Grid
-                    columns={columns} mobileColumns="1"
-                    fillWidth marginBottom="40" gap="12">
-                    {displayedBlogs.map((post) => (
-                        <Post
-                            key={post.slug}
-                            post={post}
-                            thumbnail={thumbnail}
-                            direction={direction}
-                        />
-                    ))}
-                </Grid>
+            {displayedBlogs.length > 0 && (<Grid
+                columns={columns} mobileColumns="1"
+                fillWidth marginBottom="40" gap="12">
+                {displayedBlogs.map((post) => (
+                    <Post
+                        key={post.slug}
+                        post={post}
+                        thumbnail={thumbnail}
+                        direction={direction}
+                    />
+                ))}
+            </Grid>
             )}
         </>
     );

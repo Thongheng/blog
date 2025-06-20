@@ -68,76 +68,25 @@ export default function About() {
         >
           <TableOfContents structure={structure} about={about} />
         </Column>
-      )}
-
-      <Column fillWidth>
-        {/* Profile and Introduction Card */}
+      )}      <Column fillWidth>        {/* Profile and Introduction Section */}
         <Flex
           fillWidth
           marginBottom="xl"
-          border="neutral-medium"
-          radius="l"
-          padding="xl"
-          background="neutral-alpha-weak"
-          style={{ backdropFilter: "blur(var(--static-space-1))" }}
+          marginTop="l"
           gap="xl"
           mobileDirection="column"
         >
-          {/* Left side: Profile info */}
-          {about.avatar.display && (
-            <Flex direction="column" gap="m" horizontal="center" flex={3} minWidth="160">
-              <Avatar src={person.avatar} size="xl" />
-              <Flex gap="8" vertical="center">
-                <Icon onBackground="accent-weak" name="globe" />
-                {person.location}
-              </Flex>
-              {person.languages.length > 0 && (
-                <Flex wrap gap="8" horizontal="center">
-                  {person.languages.map((language, index) => (
-                    <Tag key={language} size="l">
-                      {language}
-                    </Tag>
-                  ))}
-                </Flex>
-              )}
-            </Flex>
-          )}
-
-          {/* Right side: Name, role, social links, and introduction */}
+          {/* Left side: Name, role, social links, and introduction */}
           <Flex direction="column" flex={9} gap="m">
-            {about.calendar.display && (
-              <Flex
-                fitWidth
-                border="brand-alpha-medium"
-                style={{
-                  backdropFilter: "blur(var(--static-space-1))",
-                }}
-                background="brand-alpha-weak"
-                radius="full"
-                padding="4"
-                gap="8"
-                marginBottom="m"
-                vertical="center"
-              >
-                <Icon paddingLeft="12" name="calendar" onBackground="brand-weak" />
-                <Flex paddingX="8">Schedule a call</Flex>
-                <IconButton
-                  href={about.calendar.link}
-                  data-border="rounded"
-                  variant="secondary"
-                  icon="chevronRight"
-                />
-              </Flex>
-            )}
-            <Heading variant="display-strong-xl" id={about.intro.title}>
+            <Heading variant="display-strong-l" id={about.intro.title}>
               {person.name}
             </Heading>
-            <Text variant="display-default-xs" onBackground="neutral-weak">
+            <Text variant="display-strong-xs" onBackground="neutral-weak">
               {person.role}
             </Text>
 
             {about.intro.display && (
-              <Text variant="body-default-l" marginY="m">
+              <Text variant="body-default-m" marginY="m">
                 {about.intro.description}
               </Text>
             )}
@@ -169,9 +118,32 @@ export default function About() {
                       </React.Fragment>
                     ),
                 )}
-              </Flex>
-            )}
-          </Flex>
+              </Flex>)}
+          </Flex>          {/* Right side: Profile picture */}
+          {about.avatar.display && (
+            <Flex direction="column" gap="m" horizontal="center" flex={3} minWidth="160">
+              <Avatar src={person.avatar} size="xl" />
+              {about.calendar.display && (
+                <Flex
+                  fitWidth
+                  border="brand-alpha-medium"
+                  style={{
+                    backdropFilter: "blur(var(--static-space-1))",
+                  }}
+                  background="brand-alpha-weak"
+                  radius="full"
+                  padding="4"
+                  gap="8"
+                  marginTop="m"
+                  vertical="center"
+                  horizontal="center"
+                >
+                  <Icon paddingLeft="12" name="shield" onBackground="brand-weak" />
+                  <Flex paddingX="8">Not a Real Hacker</Flex>
+                </Flex>
+              )}
+            </Flex>
+          )}
         </Flex>
 
         {/* Certificates Section */}
@@ -180,59 +152,58 @@ export default function About() {
             <Heading as="h2" id={about.certificates.title} variant="display-strong-s" marginBottom="xl">
               {about.certificates.title}
             </Heading>
-            <Flex fillWidth gap="l" marginBottom="40" wrap>
-              {about.certificates.certifications.map((cert, index) => (
-                <Flex
-                  key={`${cert.name}-${index}`}
-                  direction="column"
-                  style={{ width: "32%", minWidth: "260px" }}
-                  marginBottom="l"
-                  border="neutral-medium"
-                  radius="l"
-                  padding="m"
-                >
-                  {cert.image && (
-                    <Flex
-                      fillWidth
-                      marginBottom="m"
-                    >
-                      <Media
-                        enlarge
-                        radius="m"
-                        sizes="100%"
-                        alt={`${cert.name} certificate`}
-                        src={cert.image}
-                      />
-                    </Flex>
-                  )}
-                  <Text id={cert.name} variant="heading-strong-l" marginBottom="xs">
-                    {cert.name}
-                  </Text>
-                  <Flex fillWidth horizontal="space-between" vertical="center" marginBottom="s">
-                    <Text variant="body-default-s" onBackground="brand-weak">
-                      {cert.issuer}
-                    </Text>
-                    <Text variant="heading-default-xs" onBackground="neutral-weak">
-                      {cert.date}
-                    </Text>
+            <Flex fillWidth gap="m" marginBottom="40" wrap horizontal="space-between">
+              {about.certificates.certifications.map((cert, index) => (<Flex
+                key={`${cert.name}-${index}`}
+                direction="column"
+                style={{ width: "30%", minWidth: "240px" }}
+                marginBottom="l"
+                border="neutral-medium"
+                radius="l"
+                padding="m"
+              >
+                {cert.image && (
+                  <Flex
+                    fillWidth
+                    marginBottom="m"
+                  >
+                    <Media
+                      enlarge
+                      radius="m"
+                      sizes="100%"
+                      alt={`${cert.name} certificate`}
+                      src={cert.image}
+                    />
                   </Flex>
-                  <Text variant="body-default-m" marginBottom="m">
-                    {cert.description}
+                )}
+                <Text id={cert.name} variant="heading-strong-l" marginBottom="xs">
+                  {cert.name}
+                </Text>
+                <Flex fillWidth horizontal="space-between" vertical="center" marginBottom="s">
+                  <Text variant="body-default-s" onBackground="brand-weak">
+                    {cert.issuer}
                   </Text>
-                  {cert.link && (
-                    <Flex style={{ marginTop: "auto" }}>
-                      <Button
-                        href={cert.link}
-                        variant="secondary"
-                        size="s"
-                        weight="default"
-                        arrowIcon
-                      >
-                        View Certificate
-                      </Button>
-                    </Flex>
-                  )}
+                  <Text variant="heading-default-xs" onBackground="neutral-weak">
+                    {cert.date}
+                  </Text>
                 </Flex>
+                <Text variant="body-default-m" marginBottom="m">
+                  {cert.description}
+                </Text>
+                {cert.link && (
+                  <Flex style={{ marginTop: "auto" }}>
+                    <Button
+                      href={cert.link}
+                      variant="secondary"
+                      size="s"
+                      weight="default"
+                      arrowIcon
+                    >
+                      View Certificate
+                    </Button>
+                  </Flex>
+                )}
+              </Flex>
               ))}
             </Flex>
           </>

@@ -38,8 +38,7 @@ export default function Post({ post, thumbnail, direction }: PostProps) {
                         alt={'Thumbnail of ' + post.metadata.title}
                         aspectRatio="16 / 9"
                     />
-                )}
-                <Column
+                )}                <Column
                     position="relative"
                     fillWidth gap="4"
                     padding="24"
@@ -55,7 +54,7 @@ export default function Post({ post, thumbnail, direction }: PostProps) {
                         onBackground="neutral-weak">
                         {formatDate(post.metadata.publishedAt, false)}
                     </Text>
-                    { post.metadata.tag &&
+                    {post.metadata.tag &&
                         <Tag
                             className="mt-12"
                             label={post.metadata.tag}

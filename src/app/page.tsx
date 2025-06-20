@@ -26,8 +26,8 @@ export default function Home() {
               {home.headline}
             </Heading>
           </RevealFx>
-          <RevealFx translateY="8" delay={0.2} fillWidth horizontal="start" paddingBottom="32">
-            <Text wrap="balance" onBackground="neutral-weak" variant="heading-default-xl">
+          <RevealFx translateY="8" fillWidth horizontal="start" paddingBottom="32">
+            <Text wrap="balance" onBackground="neutral-weak" variant="body-default-l">
               {home.subline}
             </Text>
           </RevealFx>
@@ -53,20 +53,26 @@ export default function Home() {
                 {about.title}
               </Flex>
             </Button>
-          </RevealFx>        </Column>
-      </Column>
-      {routes["/blog"] && (
-        <Flex fillWidth gap="24" mobileDirection="column">
-          <Flex flex={1} paddingLeft="l" paddingTop="24">
-            <Heading as="h2" variant="display-strong-xs" wrap="balance">
-              Latest from the blog
-            </Heading>
-          </Flex>
-          <Flex flex={3} paddingX="20">
-            <Posts range={[1, 2]} columns="2" />
-          </Flex>
-        </Flex>
-      )}
+          </RevealFx>        </Column>      </Column>      {routes["/blog"] && (
+            <Flex
+              fillWidth
+              direction="column"
+              style={{ backdropFilter: "blur(var(--static-space-1))" }}
+              border="neutral-medium"
+              radius="l"
+              padding="l"
+              marginTop="xl"
+            >
+              <Flex paddingBottom="l">
+                <Heading as="h2" variant="display-strong-xs" wrap="balance">
+                  Latest from the blog
+                </Heading>
+              </Flex>
+              <Flex>
+                <Posts range={[1, 2]} columns="2" />
+              </Flex>
+            </Flex>
+          )}
     </Column>
   );
 }
