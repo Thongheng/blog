@@ -6,14 +6,14 @@ const baseURL = "https://demo.magic-portfolio.com";
 const routes = {
   "/": true,
   "/about": true,
-  "/work": true,
+  "/work": false,
   "/blog": true,
-  "/gallery": true,
+  "/gallery": false,
 };
 
 const display = {
-  location: true,
-  time: true,
+  location: false,
+  time: false,
   themeSwitcher: true
 };
 
