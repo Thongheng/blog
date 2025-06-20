@@ -43,17 +43,17 @@ export default async function RootLayout({
                   
                   // Set defaults from config
                   const config = ${JSON.stringify({
-                    brand: style.brand,
-                    accent: style.accent,
-                    neutral: style.neutral,
-                    solid: style.solid,
-                    'solid-style': style.solidStyle,
-                    border: style.border,
-                    surface: style.surface,
-                    transition: style.transition,
-                    scaling: style.scaling,
-                    'viz-style': dataStyle.variant,
-                  })};
+              brand: style.brand,
+              accent: style.accent,
+              neutral: style.neutral,
+              solid: style.solid,
+              'solid-style': style.solidStyle,
+              border: style.border,
+              surface: style.surface,
+              transition: style.transition,
+              scaling: style.scaling,
+              'viz-style': dataStyle.variant,
+            })};
                   
                   // Apply default values
                   Object.entries(config).forEach(([key, value]) => {
@@ -91,7 +91,7 @@ export default async function RootLayout({
         />
       </head>
       <Providers>
-        <Column as="body" background="page" fillWidth style={{minHeight: "100vh"}} margin="0" padding="0" horizontal="center">
+        <Column as="body" background="page" fillWidth style={{ minHeight: "100vh" }} margin="0" padding="0" horizontal="center">
           <Background
             position="fixed"
             mask={{
@@ -133,24 +133,24 @@ export default async function RootLayout({
               color: effects.lines.color,
             }}
           />
-          <Flex fillWidth minHeight="16" hide="s"/>
-            <Header />
-            <Flex
-              zIndex={0}
-              fillWidth
-              padding="l"
-              horizontal="center"
-              flex={1}
-            >
-              <Flex horizontal="center" fillWidth minHeight="0">
-                <RouteGuard>
-                  {children}
-                </RouteGuard>
-              </Flex>
+          <Flex fillWidth minHeight="16" hide="s" />
+          <Header />
+          <Flex
+            zIndex={0}
+            fillWidth
+            padding="l"
+            horizontal="center"
+            flex={1}
+          >
+            <Flex horizontal="center" fillWidth minHeight="0">
+              <RouteGuard>
+                {children}
+              </RouteGuard>
             </Flex>
-            <Footer/>
-          </Column>
-        </Providers>
-      </Flex>
+          </Flex>
+          <Footer />
+        </Column>
+      </Providers>
+    </Flex>
   );
 }
