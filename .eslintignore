@@ -1,0 +1,28 @@
+# Build directories
+.next/
+out/
+dist/
+build/
+
+# Node modules
+node_modules/
+
+# Cache and other generated files
+.cache/
+coverage/
+*.log
+.vercel/
+
+# Config files
+next.config.mjs
+next.config.js
+postcss.config.js
+tailwind.config.js
+biome.json
+
+# Generated types
+next-env.d.ts
+*.d.ts
+
+# Public assets
+public/

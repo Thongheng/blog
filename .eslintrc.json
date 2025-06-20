@@ -1,8 +1,16 @@
 {
+  "root": true,
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
   "extends": [
     "eslint:recommended",
     "next/core-web-vitals"
   ],
+  "parser": "@typescript-eslint/parser",
+  "ignorePatterns": ["node_modules/", ".next/", "out/"],
   "rules": {
     "no-unused-vars": "off",
     "no-undef": "off",
